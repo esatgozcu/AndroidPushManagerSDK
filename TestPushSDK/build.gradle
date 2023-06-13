@@ -38,7 +38,7 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.esatgozcu'
-                artifactId = 'TestPushNotificationSDK'
+                artifactId = 'AndroidPushManagerSDK'
                 version = '1.0.0'
             }
         }
