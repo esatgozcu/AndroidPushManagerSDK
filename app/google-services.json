@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "757315954191",
+    "project_id": "testsdk-ef1ba",
+    "storage_bucket": "testsdk-ef1ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757315954191:android:e168f6271c27f7fce9e57a",
+        "android_client_info": {
+          "package_name": "com.esatgozcu.pushnotificationsenderandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757315954191-7mu8aiec33taogkbshi2hjsuv60tfsli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrO6jbV_c3WeSCin4II1h089KzlI646nM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757315954191-7mu8aiec33taogkbshi2hjsuv60tfsli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
