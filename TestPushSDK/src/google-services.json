@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:757315954191:android:e168f6271c27f7fce9e57a",
         "android_client_info": {
-          "package_name": "com.esatgozcu.pushnotificationsenderandroid"
+          "package_name": "com.esatgozcu.testpushsdk"
         }
       },
       "oauth_client": [

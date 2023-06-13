@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.esatgozcu.testpushsdk.AskPermissionCompleteListener
 import com.esatgozcu.testpushsdk.CheckPermissionCompleteListener
+import com.esatgozcu.testpushsdk.GetRegisterTokenCompleteListener
 import com.esatgozcu.testpushsdk.TestPushSDK
 
 var TAG = "LOG_AWESOME"
@@ -25,12 +26,14 @@ class MainActivity : AppCompatActivity() {
             Log.w(TAG, "Device doesn't have google play services!")
         }
 
-        testSDK.getRegistrationToken { task ->
-            if (!task.isSuccessful) {
-                Log.w(TAG, "Fetching FCM registration token failed!", task.exception)
+        testSDK.getRegistrationToken(object: GetRegisterTokenCompleteListener{
+            override fun onSuccess(token: String) {
+                Log.d(TAG, "FCM registration token: $token")
             }
-            Log.d(TAG, "FCM registration token: " + task.result)
-        }
+            override fun onFailure(error: String) {
+                Log.w(TAG, "Fetching FCM registration token failed!$error")
+            }
+        })
 
         // TODO: This is only necessary for API level >= 33 (TIRAMISU)
         if (Build.VERSION.SDK_INT >= 33) {

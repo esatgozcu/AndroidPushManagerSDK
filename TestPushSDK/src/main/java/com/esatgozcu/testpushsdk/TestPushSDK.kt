@@ -10,13 +10,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 
 class TestPushSDK(private val context: Context, private val activity: AppCompatActivity) {
-    fun getRegistrationToken(listener: OnCompleteListener<String>){
+    fun getRegistrationToken(listener: GetRegisterTokenCompleteListener){
         FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
-                listener.onComplete(task)
+            if (task.isSuccessful){
+                listener.onSuccess(token = task.result)
+            }
+            else{
+                listener.onFailure(error = task.exception.toString())
+            }
         }
     }
     fun checkGooglePlayServices(): Boolean {
@@ -63,6 +67,10 @@ class TestPushSDK(private val context: Context, private val activity: AppCompatA
         }
         requestPermissionLauncher.launch(POST_NOTIFICATIONS)
     }
+}
+interface GetRegisterTokenCompleteListener {
+    fun onSuccess(token: String)
+    fun onFailure(error: String)
 }
 interface CheckPermissionCompleteListener {
     fun onGranted()
